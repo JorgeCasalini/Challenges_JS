@@ -1,76 +1,80 @@
-/*
-Escreva um programa em javascript para calcular a área de diferentes formas geométricas.
-O programa deve iniciar com um menu contendo as diferentes opções de cálculas.
-As opções devem ser:
+function calcularAreaTriangulo() {
+    const base = parseFloat(prompt("Informe a base do triângulo:"))
+    const altura = parseFloat(prompt("Informe a altura do triângulo:"))
+    return base * altura / 2
+}
 
-- área do triângulo: base * altura / 2
-- área do retângulo: base * altura
-- área do quadrado: lado²
-- área do trapézio: (base maior + base menor) * altura / 2
-- área do círculo: pi * raio² (considere pi = 3.14)
+function calcularAreaRetangulo() {
+    const base = parseFloat(prompt("Informe a base do retângulo:"))
+    const altura = parseFloat(prompt("Informe a altura do retângulo:"))
+    return base * altura
+}
 
-Você deve escrever o programa usando funções sempre que possível
-para separar os procedimentos.
-O programa também deve ter uma opção de “Sair” e
-enquanto ela não for escolhida deverá voltar ao menu.
-*/
+function calcularAreaQuadrado() {
+    const lado = parseFloat(prompt("Informe a área do quadrado:"))
+    return lado * lado
+}
 
-let opcao = ""
-let resultado = ""
+function calcularAreaTrapezio() {
+    const baseMenor = parseFloat(prompt("Informe a base menor do trapézio:"))
+    const baseMaior = parseFloat(prompt("Informe a base maior do trapézio:"))
+    const altura = parseFloat(prompt("Informe a altura do trapézio:"))
+    return (baseMaior + baseMenor) * altura / 2
+}
 
-do{
-    opcao = prompt("Bem vindo a calculadora geométrica, calcule uma das opções a seguir:\n"+
-    "1.Área do retângulo\n"+
-    "2.Área do quadrado\n"+
-    "3.Área do triângulo\n"+
-    "4.Área do trapézio\n"+
-    "5.Área do círculo\n"+
-    "6.Sair")
+function calcularAreaCirculo() {
+    const raio = parseFloat(prompt("Informe o raio do círculo:"))
+    return (3.14 * raio * raio)
+}
 
-    switch(opcao){
-        case "1":
-            let base = prompt("Qual o valor da base ? ")
-            let altura = prompt("Qual o valor da altura ? ") 
-            function areaRetangulo(base, altura) {
-                return base * altura
-            }
-            alert("O valor da área do retângulo é: "+ areaRetangulo(base,altura) + "m²")
-        break
-        case "2":
-            let lado = prompt("Qual o valor do lado ? ")
-            function areaQuadrado(lado){
-                return areaRetangulo(lado, lado)
-            }
-            alert("O valor da área do retângulo é: "+ areaQuadrado(lado) + "m²")
-        break
-        case "3":
-            let baseTriangulo = prompt("Qual o valor da base ? ") 
-            let alturaTriangulo= prompt("Qual o valor da altura ? ")
-            function areaTriangulo( baseTriangulo,alturaTriangulo){
-                return areaRetangulo(baseTriangulo,alturaTriangulo)/2
-            }
-            alert("O valor da área do triângulo é: "+ areaTriangulo(baseTriangulo,alturaTriangulo) + "m²")
-        break
-        case "4":
-            //Tanto o parseFloat quanto o símbolo "+" converte o resultado em Number
-            //Não concatenando a string mas sim somando quando utilizar o sinal "+"
+function exibirMenu() {
+    return prompt(
+        "Calcule a seguir o item desejado:\n" +
+        "1. Calcular área de triângulo\n" +
+        "2. Calcular área de retângulo\n" +
+        "3. Calcular área de quadrado\n" +
+        "4. Calcular área de trapézio\n" +
+        "5. Calcular área de círculo\n" +
+        "6. Sair\n"
+    )
+}
 
-            let baseMaior = parseFloat(prompt("Qual o valor da base maior ?"))
-            let baseMenor = +(prompt("Qual o valor da base menor ?"))
-            let baseTrapezio = (baseMaior + baseMenor)
-            let alturaTrapezio = +(prompt("Qual o valor da altura ?"))
-            function areaTrapezio(baseTrapezio, alturaTrapezio){
-                return areaTriangulo( baseTrapezio, alturaTrapezio)
-            }
-            alert("O valor da área do trapézio é: "+ areaTrapezio(baseTrapezio,alturaTrapezio) + "m²")
-        break
-        case "5":
-        break
-        case "6":
-            alert("Encerrando o programa...")
-        break
-        default:
-        alert("Opção inválida, escolha outra.")
-        break
-    }
-}while(opcao !=="6")
+function executar() {
+    let opcao = ""
+
+    do {
+        opcao = exibirMenu()
+        let resultado
+
+        switch (opcao) {
+            case "1":
+                resultado = calcularAreaTriangulo()
+                break
+            case "2":
+                resultado = calcularAreaRetangulo()
+                break
+            case "3":
+                resultado = calcularAreaQuadrado()
+                break
+            case "4":
+                resultado = calcularAreaTrapezio()
+                break
+            case "5":
+                resultado = calcularAreaCirculo()
+                break
+            case "6":
+                alert("Saindo...")
+                break
+            default:
+                alert("Opção inválida!")
+                break
+        }
+
+        if (resultado) {
+            alert("Resultado: " + resultado)
+        }
+
+    } while (opcao !== "6");
+}
+
+executar()
