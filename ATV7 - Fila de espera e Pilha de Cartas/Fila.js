@@ -33,39 +33,3 @@ do {
       break
   }
 } while (opcao !== "3");
-/*
-const filaPaciente = []
-
-let opcao = ""
-let NomePaciente = ""
-
-do {
-
-    alert("Olá essa é o nome das pessoas em nossa fila de espera" + "\n" +filaPaciente)
-    opcao = prompt(
-        "\nEscolha uma opção!" +
-        "\n1.Novo Paciente" +
-        "\n2.Consultar Paciente" +
-        "\n3.Sair"
-    )
-
-    switch (opcao) {
-        case "1":
-            let NovoPaciente = prompt("Digite o nome do paciente : \n")
-            filaPaciente.push(NovoPaciente)
-            break
-        case "2":
-            let pacienteConsultado = filaPaciente.shift()
-            alert("O paciente " + pacienteConsultado + " foi consultado")
-            break
-        case "3":
-            alert("Você encerrou")
-            alert("até mais...")
-            break
-            default:
-                alert("Opção Inválida")
-
-    }
-
-}while (opcao !== "3")
-*/ 
