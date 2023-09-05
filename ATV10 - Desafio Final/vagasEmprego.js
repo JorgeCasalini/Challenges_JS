@@ -1,4 +1,3 @@
-//teste 
 const vagas = []
 
 function listarVagas() {
